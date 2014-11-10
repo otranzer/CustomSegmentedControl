@@ -1,8 +1,6 @@
 //
 //  CustomSegmentedControl.h
-//  Splitit
 //
-//  Created by miLibris on 13/03/14.
 //  Copyright (c) 2014 Olivier Tranzer. All rights reserved.
 //
 
