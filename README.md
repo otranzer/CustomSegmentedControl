@@ -14,9 +14,9 @@ And then add files to your xcode project.
 
 #### Create the segmented control view
 
-    self.segmentedControl = [[CustomSegmentedControl alloc] initWithFrame:frame andTabTitles:@[NSLocalizedString(@"Tab 1", nil), NSLocalizedString(@"Tab 2", nil)] andDefaultImages:@[@"btn_tab_notpress", @"btn_tab_notpress"] andSelectedImages:@[@"btn_tab_pressed", @"btn_tab_pressed"] andDefaultTextColor:[UIColor whiteColor] andSelectedTextColor:[UIColor blackColor] andCustomFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:15]];
-    self.segmentedControl.delegate = self;
-    [self.view addSubview:self.segmentedControl];
+    CustomSegmentedControl *segmentedControl = [[CustomSegmentedControl alloc] initWithFrame:frame andTabTitles:@[NSLocalizedString(@"Tab 1", nil), NSLocalizedString(@"Tab 2", nil)] andDefaultImages:@[@"btn_tab_notpress", @"btn_tab_notpress"] andSelectedImages:@[@"btn_tab_pressed", @"btn_tab_pressed"] andDefaultTextColor:[UIColor whiteColor] andSelectedTextColor:[UIColor blackColor] andCustomFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:15]];
+    segmentedControl.delegate = self;
+    [self.view addSubview:segmentedControl];
 
 #### Implement the delegate
 
