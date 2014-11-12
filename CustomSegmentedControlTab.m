@@ -27,9 +27,9 @@
 @implementation CustomSegmentedControlTab
 
 #pragma mark - Alloc/Init
-- (id)initWithFrame:(CGRect)frame andTitle:(NSString *)title andDefaultImageName:(NSString *)defaultImageName andSelectedImageName:(NSString *)selectedImageName andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont
+- (id)initWithTitle:(NSString *)title andDefaultImageName:(NSString *)defaultImageName andSelectedImageName:(NSString *)selectedImageName andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self) {
         // Initialization code
         
@@ -38,11 +38,10 @@
         self.selectedTextColor = selectedTextColor;
         
         // Create views
-        self.defaultImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        self.selectedImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        self.titleLabel = [[UILabel alloc] initWithFrame:self.bounds];
+        self.defaultImageView = [[UIImageView alloc] init];
+        self.selectedImageView = [[UIImageView alloc] init];
+        self.titleLabel = [[UILabel alloc] init];
         self.button = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.button.frame = self.bounds;
         
         // Set image sources
         [self.defaultImageView setImage:[UIImage imageNamed:defaultImageName]];

@@ -47,10 +47,8 @@ static const CGFloat kSegmentHeight = 40;
     
     // Init custom segmented tab
     CGFloat width = [[UIScreen mainScreen] bounds].size.width;
-    CGRect frame = CGRectMake(0, 0, width, kSegmentHeight);
-    self.segmentedControl = [[CustomSegmentedControl alloc] initWithFrame:frame andTabTitles:@[NSLocalizedString(@"Tab 1", nil), NSLocalizedString(@"Tab 2", nil)] andDefaultImages:@[@"btn_tab_notpress", @"btn_tab_notpress"] andSelectedImages:@[@"btn_tab_pressed", @"btn_tab_pressed"] andDefaultTextColor:[UIColor whiteColor] andSelectedTextColor:[UIColor blackColor] andCustomFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:15]];
+    self.segmentedControl = [[CustomSegmentedControl alloc] initWithTabTitles:@[NSLocalizedString(@"Tab 1", nil), NSLocalizedString(@"Tab 2", nil)] andDefaultImages:@[@"btn_tab_notpress", @"btn_tab_notpress"] andSelectedImages:@[@"btn_tab_pressed", @"btn_tab_pressed"] andDefaultTextColor:[UIColor whiteColor] andSelectedTextColor:[UIColor blackColor] andCustomFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:15]];
     self.segmentedControl.delegate = self;
-    self.segmentedControl.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.segmentedControl];
     
     // Add the two tabs views

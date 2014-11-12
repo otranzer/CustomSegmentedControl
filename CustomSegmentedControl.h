@@ -16,6 +16,19 @@
 /**
  *  Init method
  *
+ *  @param tabTitles           Array of the titles of the tabs
+ *  @param defaultImages       Background image name when the tab is not selected (the file needs to be added to your project first)
+ *  @param selectedImages      Background image name when the tab is selected (the file needs to be added to your project first)
+ *  @param defaultTextColor    Text color when the tab is not selected
+ *  @param selectedTextColor   Text color when the tab is selected
+ *  @param customFont          Font of the tab title text
+ *
+ */
+- (id)initWithTabTitles:(NSArray *)tabTitles andDefaultImages:(NSArray *)defaultImages andSelectedImages:(NSArray *)selectedImages andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont;
+
+/**
+ *  Init method with frame
+ *
  *  @param frame               The frame of the view
  *  @param tabTitles           Array of the titles of the tabs
  *  @param defaultImages       Background image name when the tab is not selected (the file needs to be added to your project first)

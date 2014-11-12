@@ -17,55 +17,65 @@
 @implementation CustomSegmentedControl
 
 #pragma mark - Alloc/Init
+
+- (id)initWithTabTitles:(NSArray *)tabTitles andDefaultImages:(NSArray *)defaultImages andSelectedImages:(NSArray *)selectedImages andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont
+{
+    self = [super init];
+    if (self) {
+        // Initialization code
+       [self initViewsWithTabTitles:tabTitles andDefaultImages:defaultImages andSelectedImages:selectedImages andDefaultTextColor:defaultTextColor andSelectedTextColor:selectedTextColor andCustomFont:customFont];
+    }
+    return self;
+}
+
+
 - (id)initWithFrame:(CGRect)frame andTabTitles:(NSArray *)tabTitles andDefaultImages:(NSArray *)defaultImages andSelectedImages:(NSArray *)selectedImages andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        NSUInteger n = [tabTitles count];
-        if ([defaultImages count] != n || [selectedImages count] != n) {
-            NSLog(@"Arguments not correct");
-            return nil;
-        }
+        [self initViewsWithTabTitles:tabTitles andDefaultImages:defaultImages andSelectedImages:selectedImages andDefaultTextColor:defaultTextColor andSelectedTextColor:selectedTextColor andCustomFont:customFont];
+    }
+    return self;
+}
+
+- (void)initViewsWithTabTitles:(NSArray *)tabTitles andDefaultImages:(NSArray *)defaultImages andSelectedImages:(NSArray *)selectedImages andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont
+{
+    NSUInteger n = [tabTitles count];
+    if ([defaultImages count] != n || [selectedImages count] != n) {
+        NSLog(@"Arguments not correct");
+        return;
+    }
+    
+    self.tabs = [NSMutableArray array];
+    
+    for (int i = 0 ; i < n ; i++) {
         
-        self.tabs = [NSMutableArray array];
+        // Get data
+        NSString *title = [tabTitles objectAtIndex:i];
+        NSString *defaultImage = [defaultImages objectAtIndex:i];
+        NSString *selectedImage = [selectedImages objectAtIndex:i];
         
-        for (int i = 0 ; i < n ; i++) {
-            
-            // Get data
-            NSString *title = [tabTitles objectAtIndex:i];
-            NSString *defaultImage = [defaultImages objectAtIndex:i];
-            NSString *selectedImage = [selectedImages objectAtIndex:i];
-            
-            // Set frame
-            CGRect tabFrame = frame;
-            tabFrame.origin.x = i * (frame.size.width / n);
-            tabFrame.origin.y = 0;
-            tabFrame.size.width = (frame.size.width / n);
-            
-            // Init tab
-            CustomSegmentedControlTab *tab = [[CustomSegmentedControlTab alloc] initWithFrame:tabFrame andTitle:title andDefaultImageName:defaultImage andSelectedImageName:selectedImage andDefaultTextColor:defaultTextColor andSelectedTextColor:selectedTextColor andCustomFont:customFont];
-            
-            // Add to local array
-            [self.tabs addObject:tab];
-            
-            [self addSubview:tab];
-            
-            // Set delegate
-            tab.delegate = self;
-            
-            // Set tag
-            tab.tag = i;
-            
-            // Select first tab
-            if (i == 0) {
-                [tab setSelected:YES];
-            }
-            
+        // Init tab
+        CustomSegmentedControlTab *tab = [[CustomSegmentedControlTab alloc] initWithTitle:title andDefaultImageName:defaultImage andSelectedImageName:selectedImage andDefaultTextColor:defaultTextColor andSelectedTextColor:selectedTextColor andCustomFont:customFont];
+        
+        // Add to local array
+        [self.tabs addObject:tab];
+        
+        [self addSubview:tab];
+        
+        // Set delegate
+        tab.delegate = self;
+        
+        // Set tag
+        tab.tag = i;
+        
+        // Select first tab
+        if (i == 0) {
+            [tab setSelected:YES];
         }
         
     }
-    return self;
 }
 
 #pragma mark - Layout

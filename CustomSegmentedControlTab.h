@@ -19,7 +19,6 @@
 /**
  *  Init method
  *
- *  @param frame               The frame of the view
  *  @param title               The title of the tab
  *  @param defaultImageName    The name of the default background image
  *  @param selectedImageName   The name of the selected background image
@@ -28,7 +27,7 @@
  *  @param customFont          Font of the tab title text
  *
  */
-- (id)initWithFrame:(CGRect)frame andTitle:(NSString *)title andDefaultImageName:(NSString *)defaultImageName andSelectedImageName:(NSString *)selectedImageName andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont;
+- (id)initWithTitle:(NSString *)title andDefaultImageName:(NSString *)defaultImageName andSelectedImageName:(NSString *)selectedImageName andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont;
 
 /**
  *  Select/Unselect tab
