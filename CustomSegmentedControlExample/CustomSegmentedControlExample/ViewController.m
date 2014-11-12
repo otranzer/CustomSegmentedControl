@@ -17,6 +17,7 @@ static const CGFloat kSegmentHeight = 40;
 
 @interface ViewController ()
 
+@property (nonatomic, strong) CustomSegmentedControl *segmentedControl;
 @property (nonatomic, strong) FirstTabViewController *firstTabViewController;
 @property (nonatomic, strong) SecondTabViewController *secondTabViewController;
 
@@ -47,9 +48,10 @@ static const CGFloat kSegmentHeight = 40;
     // Init custom segmented tab
     CGFloat width = [[UIScreen mainScreen] bounds].size.width;
     CGRect frame = CGRectMake(0, 0, width, kSegmentHeight);
-    CustomSegmentedControl *segmentedControl = [[CustomSegmentedControl alloc] initWithFrame:frame andTabTitles:@[NSLocalizedString(@"Tab 1", nil), NSLocalizedString(@"Tab 2", nil)] andDefaultImages:@[@"btn_tab_notpress", @"btn_tab_notpress"] andSelectedImages:@[@"btn_tab_pressed", @"btn_tab_pressed"] andDefaultTextColor:[UIColor whiteColor] andSelectedTextColor:[UIColor blackColor] andCustomFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:15]];
-    segmentedControl.delegate = self;
-    [self.view addSubview:segmentedControl];
+    self.segmentedControl = [[CustomSegmentedControl alloc] initWithFrame:frame andTabTitles:@[NSLocalizedString(@"Tab 1", nil), NSLocalizedString(@"Tab 2", nil)] andDefaultImages:@[@"btn_tab_notpress", @"btn_tab_notpress"] andSelectedImages:@[@"btn_tab_pressed", @"btn_tab_pressed"] andDefaultTextColor:[UIColor whiteColor] andSelectedTextColor:[UIColor blackColor] andCustomFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:15]];
+    self.segmentedControl.delegate = self;
+    self.segmentedControl.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.segmentedControl];
     
     // Add the two tabs views
     [self.view addSubview:self.firstTabViewController.view];
@@ -72,16 +74,22 @@ static const CGFloat kSegmentHeight = 40;
     
     // Init frame
     CGFloat x = 0;
-    CGFloat y = kSegmentHeight;
+    CGFloat y = 0;
     CGFloat width = self.view.bounds.size.width;
-    CGFloat height = self.view.bounds.size.height - kSegmentHeight;
+    CGFloat height = kSegmentHeight;
     CGRect frame = CGRectMake(x, y, width, height);
     
-    // First tab view
-    self.firstTabViewController.view.frame= frame;
+    // Segmented control
+    self.segmentedControl.frame = frame;
     
     // First tab view
-    self.secondTabViewController.view.frame= frame;
+    y += kSegmentHeight;
+    height = self.view.bounds.size.height - kSegmentHeight;
+    frame = CGRectMake(x, y, width, height);
+    self.firstTabViewController.view.frame = frame;
+    
+    // First tab view
+    self.secondTabViewController.view.frame = frame;
 }
 
 #pragma mark - Custom segmented control delegate

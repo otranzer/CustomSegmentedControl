@@ -16,12 +16,13 @@
 
 @implementation CustomSegmentedControl
 
+#pragma mark - Alloc/Init
 - (id)initWithFrame:(CGRect)frame andTabTitles:(NSArray *)tabTitles andDefaultImages:(NSArray *)defaultImages andSelectedImages:(NSArray *)selectedImages andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        int n = [tabTitles count];
+        NSUInteger n = [tabTitles count];
         if ([defaultImages count] != n || [selectedImages count] != n) {
             NSLog(@"Arguments not correct");
             return nil;
@@ -65,6 +66,25 @@
         
     }
     return self;
+}
+
+#pragma mark - Layout
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    // Set tab frames
+    NSUInteger n = [self.tabs count];
+    for (int i = 0 ; i < n ; i++) {
+        CGFloat x = i * (self.bounds.size.width / n);
+        CGFloat y = 0;
+        CGFloat width = (self.bounds.size.width / n);
+        CGFloat height = self.bounds.size.height;
+        CGRect tabFrame = CGRectMake(x, y, width, height);
+        CustomSegmentedControlTab *tab = [self.tabs objectAtIndex:i];
+        tab.frame = tabFrame;
+    }
+    
 }
 
 #pragma mark - Tab delegate

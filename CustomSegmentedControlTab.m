@@ -26,6 +26,7 @@
 
 @implementation CustomSegmentedControlTab
 
+#pragma mark - Alloc/Init
 - (id)initWithFrame:(CGRect)frame andTitle:(NSString *)title andDefaultImageName:(NSString *)defaultImageName andSelectedImageName:(NSString *)selectedImageName andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont
 {
     self = [super initWithFrame:frame];
@@ -66,6 +67,24 @@
         self.isSelected = NO;
     }
     return self;
+}
+
+#pragma mark - Layout
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    // Default image
+    self.defaultImageView.frame = self.bounds;
+    
+    // Selected image
+    self.selectedImageView.frame = self.bounds;
+    
+    // Title
+    self.titleLabel.frame = self.bounds;
+    
+    // Button
+    self.button.frame = self.bounds;
 }
 
 - (void)setSelected:(BOOL)selected
