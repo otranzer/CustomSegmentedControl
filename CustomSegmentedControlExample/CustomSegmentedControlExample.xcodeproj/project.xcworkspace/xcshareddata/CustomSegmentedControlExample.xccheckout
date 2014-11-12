@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>65C12DC9-09F4-4CC3-BE38-61130A0E4E9F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CustomSegmentedControlExample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9DCA793C5BF6095C3D473DFDF9D6BDDD86C75455</key>
+		<string>github.com:otranzer/Projects.git</string>
+		<key>EED3650F22BBCF9BB8AE895913E94A0A52A4E687</key>
+		<string>github.com:otranzer/CustomSegmentedControl.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CustomSegmentedControlExample/CustomSegmentedControlExample.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9DCA793C5BF6095C3D473DFDF9D6BDDD86C75455</key>
+		<string>../../../../../../../..</string>
+		<key>EED3650F22BBCF9BB8AE895913E94A0A52A4E687</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:otranzer/CustomSegmentedControl.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EED3650F22BBCF9BB8AE895913E94A0A52A4E687</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9DCA793C5BF6095C3D473DFDF9D6BDDD86C75455</string>
+			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EED3650F22BBCF9BB8AE895913E94A0A52A4E687</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CustomSegmentedControl</string>
+		</dict>
+	</array>
+</dict>
+</plist>
