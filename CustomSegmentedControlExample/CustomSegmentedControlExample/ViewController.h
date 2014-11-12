@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomSegmentedControl.h"
 
 /**
  Home view controller of the example application
  */
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<CustomSegmentedControlDelegate>
 
 @end

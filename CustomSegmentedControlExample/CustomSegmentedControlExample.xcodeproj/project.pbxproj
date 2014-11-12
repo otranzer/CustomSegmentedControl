@@ -20,6 +20,10 @@
 		09F2FB571A135E8F0041E60C /* FirstTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09F2FB551A135E8F0041E60C /* FirstTabViewController.xib */; };
 		09F2FB5B1A135E9E0041E60C /* SecondTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F2FB591A135E9E0041E60C /* SecondTabViewController.m */; };
 		09F2FB5C1A135E9E0041E60C /* SecondTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09F2FB5A1A135E9E0041E60C /* SecondTabViewController.xib */; };
+		09F2FB621A1362A20041E60C /* btn_tab_notpress.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F2FB5E1A1362A20041E60C /* btn_tab_notpress.png */; };
+		09F2FB631A1362A20041E60C /* btn_tab_notpress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F2FB5F1A1362A20041E60C /* btn_tab_notpress@2x.png */; };
+		09F2FB641A1362A20041E60C /* btn_tab_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F2FB601A1362A20041E60C /* btn_tab_pressed.png */; };
+		09F2FB651A1362A20041E60C /* btn_tab_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F2FB611A1362A20041E60C /* btn_tab_pressed@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,10 @@
 		09F2FB581A135E9E0041E60C /* SecondTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondTabViewController.h; sourceTree = "<group>"; };
 		09F2FB591A135E9E0041E60C /* SecondTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondTabViewController.m; sourceTree = "<group>"; };
 		09F2FB5A1A135E9E0041E60C /* SecondTabViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondTabViewController.xib; sourceTree = "<group>"; };
+		09F2FB5E1A1362A20041E60C /* btn_tab_notpress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_tab_notpress.png; path = res/btn_tab_notpress.png; sourceTree = "<group>"; };
+		09F2FB5F1A1362A20041E60C /* btn_tab_notpress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_tab_notpress@2x.png"; path = "res/btn_tab_notpress@2x.png"; sourceTree = "<group>"; };
+		09F2FB601A1362A20041E60C /* btn_tab_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_tab_pressed.png; path = res/btn_tab_pressed.png; sourceTree = "<group>"; };
+		09F2FB611A1362A20041E60C /* btn_tab_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_tab_pressed@2x.png"; path = "res/btn_tab_pressed@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,7 @@
 		09F2FB1E1A1359F00041E60C /* CustomSegmentedControlExample */ = {
 			isa = PBXGroup;
 			children = (
+				09F2FB5D1A1362940041E60C /* res */,
 				09F2FB4D1A135ABF0041E60C /* Views */,
 				09F2FB4C1A135AB30041E60C /* ViewControllers */,
 				09F2FB231A1359F00041E60C /* AppDelegate.h */,
@@ -167,6 +176,17 @@
 				09F2FB451A135A7C0041E60C /* CustomSegmentedControl */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		09F2FB5D1A1362940041E60C /* res */ = {
+			isa = PBXGroup;
+			children = (
+				09F2FB5E1A1362A20041E60C /* btn_tab_notpress.png */,
+				09F2FB5F1A1362A20041E60C /* btn_tab_notpress@2x.png */,
+				09F2FB601A1362A20041E60C /* btn_tab_pressed.png */,
+				09F2FB611A1362A20041E60C /* btn_tab_pressed@2x.png */,
+			);
+			name = res;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,9 +269,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09F2FB621A1362A20041E60C /* btn_tab_notpress.png in Resources */,
 				09F2FB301A1359F00041E60C /* LaunchScreen.xib in Resources */,
 				09F2FB571A135E8F0041E60C /* FirstTabViewController.xib in Resources */,
 				09F2FB521A135B790041E60C /* ViewController.xib in Resources */,
+				09F2FB651A1362A20041E60C /* btn_tab_pressed@2x.png in Resources */,
+				09F2FB631A1362A20041E60C /* btn_tab_notpress@2x.png in Resources */,
+				09F2FB641A1362A20041E60C /* btn_tab_pressed.png in Resources */,
 				09F2FB5C1A135E9E0041E60C /* SecondTabViewController.xib in Resources */,
 				09F2FB2D1A1359F00041E60C /* Images.xcassets in Resources */,
 			);
