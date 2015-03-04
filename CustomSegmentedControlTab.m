@@ -10,6 +10,10 @@
 
 @interface CustomSegmentedControlTab ()
 
+// Colors
+@property (nonatomic, strong) UIColor *defaultBackgroundColor;
+@property (nonatomic, strong) UIColor *selectedBackgroundColor;
+
 // Views
 @property (nonatomic, strong) UIImageView *defaultImageView;
 @property (nonatomic, strong) UIImageView *selectedImageView;
@@ -43,9 +47,55 @@
         self.titleLabel = [[UILabel alloc] init];
         self.button = [UIButton buttonWithType:UIButtonTypeCustom];
         
+        // Set backgroud colors
+        self.defaultBackgroundColor = [UIColor clearColor];
+        self.selectedBackgroundColor = [UIColor clearColor];
+        
         // Set image sources
         [self.defaultImageView setImage:[UIImage imageNamed:defaultImageName]];
         [self.selectedImageView setImage:[UIImage imageNamed:selectedImageName]];
+        
+        // Set title
+        [self.titleLabel setText:title];
+        self.titleLabel.backgroundColor = [UIColor clearColor];
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [self.titleLabel setTextColor:self.defaultTextColor];
+        if (customFont) [self.titleLabel setFont:customFont];
+        
+        // Button
+        [self.button addTarget:self action:@selector(didClick) forControlEvents:UIControlEventTouchUpInside];
+        
+        // Add subviews
+        [self addSubview:self.defaultImageView];
+        [self addSubview:self.titleLabel];
+        [self addSubview:self.button];
+        
+        // Init state
+        self.isSelected = NO;
+    }
+    return self;
+}
+
+- (id)initWithTitle:(NSString *)title andDefaultBackgroundColor:(UIColor *)defaultBackgroundColor andSelectedBackgroundColor:(UIColor *)selectedBackgroundColor andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont
+{
+    self = [super init];
+    if (self) {
+        // Initialization code
+        
+        // Text colors
+        self.defaultTextColor = defaultTextColor;
+        self.selectedTextColor = selectedTextColor;
+        
+        // Create views
+        self.defaultImageView = [[UIImageView alloc] init];
+        self.selectedImageView = [[UIImageView alloc] init];
+        self.titleLabel = [[UILabel alloc] init];
+        self.button = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        // Set backgroud colors
+        self.defaultBackgroundColor = defaultBackgroundColor;
+        self.selectedBackgroundColor = selectedBackgroundColor;
+        self.backgroundColor = self.defaultBackgroundColor;
         
         // Set title
         [self.titleLabel setText:title];
@@ -93,10 +143,18 @@
         return;
     }
     if (selected) {
+        // Background
+        self.backgroundColor = self.selectedBackgroundColor;
+        
+        // Image
         [self insertSubview:self.selectedImageView aboveSubview:self.defaultImageView];
          [self.titleLabel setTextColor:self.selectedTextColor];
     }
     else {
+        // Background
+        self.backgroundColor = self.defaultBackgroundColor;
+        
+        // Image
         [self.selectedImageView removeFromSuperview];
          [self.titleLabel setTextColor:self.defaultTextColor];
     }

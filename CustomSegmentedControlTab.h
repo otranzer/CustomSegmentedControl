@@ -28,6 +28,18 @@
  *
  */
 - (id)initWithTitle:(NSString *)title andDefaultImageName:(NSString *)defaultImageName andSelectedImageName:(NSString *)selectedImageName andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont;
+/**
+ *  Init method
+ *
+ *  @param title                     The title of the tab
+ *  @param defaultBackgroundColor    The default background color
+ *  @param selectedBackgroundColor   The selected background color
+ *  @param defaultTextColor          Text color when the tab is not selected
+ *  @param selectedTextColor         Text color when the tab is selected
+ *  @param customFont                Font of the tab title text
+ *
+ */
+- (id)initWithTitle:(NSString *)title andDefaultBackgroundColor:(UIColor *)defaultBackgroundColor andSelectedBackgroundColor:(UIColor *)selectedBackgroundColor andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont;
 
 /**
  *  Select/Unselect tab

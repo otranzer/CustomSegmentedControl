@@ -39,6 +39,29 @@
     return self;
 }
 
+
+- (id)initWithTabTitles:(NSArray *)tabTitles andDefaultBackgroundColors:(NSArray *)defaultBackgroundColors andSelectedBackgroundColors:(NSArray *)selectedBackgroundColors andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont
+{
+    self = [super init];
+    if (self) {
+        // Initialization code
+        [self initViewsWithTabTitles:tabTitles andDefaultBackgroundColors:defaultBackgroundColors andSelectedBackgroundColors:selectedBackgroundColors andDefaultTextColor:defaultTextColor andSelectedTextColor:selectedTextColor andCustomFont:customFont];
+    }
+    return self;
+}
+
+
+- (id)initWithFrame:(CGRect)frame andTabTitles:(NSArray *)tabTitles andDefaultBackgroundColors:(NSArray *)defaultBackgroundColors andSelectedBackgroundColors:(NSArray *)selectedBackgroundColors  andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+        [self initViewsWithTabTitles:tabTitles andDefaultBackgroundColors:defaultBackgroundColors andSelectedBackgroundColors:selectedBackgroundColors andDefaultTextColor:defaultTextColor andSelectedTextColor:selectedTextColor andCustomFont:customFont];
+    }
+    return self;
+}
+
+
 - (void)initViewsWithTabTitles:(NSArray *)tabTitles andDefaultImages:(NSArray *)defaultImages andSelectedImages:(NSArray *)selectedImages andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont
 {
     NSUInteger n = [tabTitles count];
@@ -58,6 +81,45 @@
         
         // Init tab
         CustomSegmentedControlTab *tab = [[CustomSegmentedControlTab alloc] initWithTitle:title andDefaultImageName:defaultImage andSelectedImageName:selectedImage andDefaultTextColor:defaultTextColor andSelectedTextColor:selectedTextColor andCustomFont:customFont];
+        
+        // Add to local array
+        [self.tabs addObject:tab];
+        
+        [self addSubview:tab];
+        
+        // Set delegate
+        tab.delegate = self;
+        
+        // Set tag
+        tab.tag = i;
+        
+        // Select first tab
+        if (i == 0) {
+            [tab setSelected:YES];
+        }
+        
+    }
+}
+
+- (void)initViewsWithTabTitles:(NSArray *)tabTitles andDefaultBackgroundColors:(NSArray *)defaultBackgroundColors andSelectedBackgroundColors:(NSArray *)selectedBackgroundColors andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont
+{
+    NSUInteger n = [tabTitles count];
+    if ([defaultBackgroundColors count] != n || [selectedBackgroundColors count] != n) {
+        NSLog(@"Arguments not correct");
+        return;
+    }
+    
+    self.tabs = [NSMutableArray array];
+    
+    for (int i = 0 ; i < n ; i++) {
+        
+        // Get data
+        NSString *title = [tabTitles objectAtIndex:i];
+        UIColor *defaultBackgroundColor = [defaultBackgroundColors objectAtIndex:i];
+        UIColor *selectedBackgroundColor = [selectedBackgroundColors objectAtIndex:i];
+        
+        // Init tab
+        CustomSegmentedControlTab *tab = [[CustomSegmentedControlTab alloc] initWithTitle:title andDefaultBackgroundColor:defaultBackgroundColor andSelectedBackgroundColor:selectedBackgroundColor andDefaultTextColor:defaultTextColor andSelectedTextColor:selectedTextColor andCustomFont:customFont];
         
         // Add to local array
         [self.tabs addObject:tab];

@@ -41,6 +41,33 @@
 - (id)initWithFrame:(CGRect)frame andTabTitles:(NSArray *)tabTitles andDefaultImages:(NSArray *)defaultImages andSelectedImages:(NSArray *)selectedImages andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont;
 
 /**
+ *  Init method
+ *
+ *  @param tabTitles                     Array of the titles of the tabs
+ *  @param defaultBackgroundColors       Background color when the tab is not selected
+ *  @param selectedBackgroundColors      Background color when the tab is selected
+ *  @param defaultTextColor              Text color when the tab is not selected
+ *  @param selectedTextColor             Text color when the tab is selected
+ *  @param customFont                    Font of the tab title text
+ *
+ */
+- (id)initWithTabTitles:(NSArray *)tabTitles andDefaultBackgroundColors:(NSArray *)defaultBackgroundColors andSelectedBackgroundColors:(NSArray *)selectedBackgroundColors andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont;
+
+/**
+ *  Init method with frame
+ *
+ *  @param frame               The frame of the view
+ *  @param tabTitles           Array of the titles of the tabs
+ *  @param defaultBackgroundColors       Background color when the tab is not selected
+ *  @param selectedBackgroundColors      Background color when the tab is selected
+ *  @param defaultTextColor    Text color when the tab is not selected
+ *  @param selectedTextColor   Text color when the tab is selected
+ *  @param customFont          Font of the tab title text
+ *
+ */
+- (id)initWithFrame:(CGRect)frame andTabTitles:(NSArray *)tabTitles andDefaultBackgroundColors:(NSArray *)defaultBackgroundColors andSelectedBackgroundColors:(NSArray *)selectedBackgroundColors andDefaultTextColor:(UIColor *)defaultTextColor andSelectedTextColor:(UIColor *)selectedTextColor andCustomFont:(UIFont *)customFont;
+
+/**
  *  Select a specific tab
  *
  *  @param index               The index of the tab to select
