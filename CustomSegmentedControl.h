@@ -75,6 +75,14 @@
  */
 - (void)setSelectedSegmentIndex:(NSInteger)index;
 
+/**
+ *  Add an underline view under the selected tab
+ *
+ *  @param color               The color of the underline
+ *
+ */
+- (void)setSelectedUnderlineColor:(UIColor *)color;
+
 @end
 
 @protocol CustomSegmentedControlDelegate <NSObject>

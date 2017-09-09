@@ -49,6 +49,16 @@
  */
 - (void)setSelected:(BOOL)selected;
 
+
+/**
+ *  Add an underline view under the selected tab
+ *
+ *  @param color               The color of the underline
+ *
+ */
+- (void)setSelectedUnderlineColor:(UIColor *)color;
+
+
 @end
 
 /**

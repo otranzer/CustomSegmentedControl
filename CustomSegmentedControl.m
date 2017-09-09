@@ -10,6 +10,7 @@
 
 @interface CustomSegmentedControl()
 
+@property (nonatomic, strong) UIColor *underlineColor;
 @property (nonatomic, strong) NSMutableArray *tabs;
 
 @end
@@ -81,6 +82,7 @@
         
         // Init tab
         CustomSegmentedControlTab *tab = [[CustomSegmentedControlTab alloc] initWithTitle:title andDefaultImageName:defaultImage andSelectedImageName:selectedImage andDefaultTextColor:defaultTextColor andSelectedTextColor:selectedTextColor andCustomFont:customFont];
+        [tab setSelectedUnderlineColor:self.underlineColor];
         
         // Add to local array
         [self.tabs addObject:tab];
@@ -120,6 +122,7 @@
         
         // Init tab
         CustomSegmentedControlTab *tab = [[CustomSegmentedControlTab alloc] initWithTitle:title andDefaultBackgroundColor:defaultBackgroundColor andSelectedBackgroundColor:selectedBackgroundColor andDefaultTextColor:defaultTextColor andSelectedTextColor:selectedTextColor andCustomFont:customFont];
+        [tab setSelectedUnderlineColor:self.underlineColor];
         
         // Add to local array
         [self.tabs addObject:tab];
@@ -157,6 +160,15 @@
         tab.frame = tabFrame;
     }
     
+}
+
+#pragma mark - Underline
+
+- (void)setSelectedUnderlineColor:(UIColor *)color {
+    self.underlineColor = color;
+    for (CustomSegmentedControlTab *tab in self.tabs) {
+        [tab setSelectedUnderlineColor:self.underlineColor];
+    }
 }
 
 #pragma mark - Tab delegate

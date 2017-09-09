@@ -13,6 +13,7 @@
 // Colors
 @property (nonatomic, strong) UIColor *defaultBackgroundColor;
 @property (nonatomic, strong) UIColor *selectedBackgroundColor;
+@property (nonatomic, strong) UIColor *underlineColor;
 
 // Views
 @property (nonatomic, strong) UIImageView *defaultImageView;
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) UIButton *button;
 @property (nonatomic, strong) UIColor *defaultTextColor;
 @property (nonatomic, strong) UIColor *selectedTextColor;
+@property (nonatomic, strong) UIView *underlineView;
 
 // State
 @property (nonatomic) BOOL isSelected;
@@ -46,10 +48,13 @@
         self.selectedImageView = [[UIImageView alloc] init];
         self.titleLabel = [[UILabel alloc] init];
         self.button = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.underlineView = [UIView new];
+        self.underlineView.hidden = YES;
         
         // Set backgroud colors
         self.defaultBackgroundColor = [UIColor clearColor];
         self.selectedBackgroundColor = [UIColor clearColor];
+        self.underlineView.backgroundColor = (self.underlineColor) ? self.underlineColor : [UIColor clearColor];
         
         // Set image sources
         [self.defaultImageView setImage:[UIImage imageNamed:defaultImageName]];
@@ -68,6 +73,7 @@
         // Add subviews
         [self addSubview:self.defaultImageView];
         [self addSubview:self.titleLabel];
+        [self addSubview:self.underlineView];
         [self addSubview:self.button];
         
         // Init state
@@ -91,7 +97,9 @@
         self.selectedImageView = [[UIImageView alloc] init];
         self.titleLabel = [[UILabel alloc] init];
         self.button = [UIButton buttonWithType:UIButtonTypeCustom];
-        
+        self.underlineView = [UIView new];
+        self.underlineView.hidden = YES;
+
         // Set backgroud colors
         self.defaultBackgroundColor = defaultBackgroundColor;
         self.selectedBackgroundColor = selectedBackgroundColor;
@@ -110,6 +118,7 @@
         // Add subviews
         [self addSubview:self.defaultImageView];
         [self addSubview:self.titleLabel];
+        [self addSubview:self.underlineView];
         [self addSubview:self.button];
         
         // Init state
@@ -134,6 +143,12 @@
     
     // Button
     self.button.frame = self.bounds;
+    
+    // Underline
+    self.underlineView.frame = CGRectMake(0.25 * CGRectGetWidth(self.bounds),
+                                          0.85 * CGRectGetHeight(self.bounds),
+                                          0.5 * CGRectGetWidth(self.bounds),
+                                          0.15 * CGRectGetHeight(self.bounds));
 }
 
 - (void)setSelected:(BOOL)selected
@@ -158,8 +173,14 @@
         [self.selectedImageView removeFromSuperview];
          [self.titleLabel setTextColor:self.defaultTextColor];
     }
+    self.underlineView.hidden = !selected;
     // Record current state
     self.isSelected = selected;
+}
+
+- (void)setSelectedUnderlineColor:(UIColor *)color {
+    self.underlineColor = color;
+    if (self.underlineView) self.underlineView.backgroundColor = self.underlineColor;
 }
 
 - (void)didClick
